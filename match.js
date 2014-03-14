@@ -49,9 +49,9 @@ var Match = (function () {
                 player1Score++;
                 break;
             case 3:
-               if (player2Score == 3) {
+               if (player2Score === 3) {
                    player1Score++;
-               } else if (player2Score == 4) {
+               } else if (player2Score === 4) {
                    player2Score--;
                } else {
                    player1Score = player2Score = 0; 
@@ -65,15 +65,24 @@ var Match = (function () {
 
     Match.prototype.player2Scores =
     function() {
-        switch (player2Score) {
+         switch (player2Score) {
             case 0:
             case 1:
-            case 2:                   
+            case 2:
                 player2Score++;
                 break;
-            
+            case 3:
+               if (player1Score === 3) {
+                   player2Score++;
+               } else if (player1Score === 4) {
+                   player1Score--;
+               } else {
+                   player2Score = player1Score = 0; 
+               }
+               break;
+            case 4:
             default:
-                
+               throw new Error('Illegal score');
         }
     };
 
