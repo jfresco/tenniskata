@@ -1,0 +1,11 @@
+{
+    "color": true,
+    "indent": true,
+    "maxlen": 100, 
+    "node": true,
+    "plusplus": true,
+    "bitwise": true,
+    "white": true,
+    "vars": true,
+    "curly": false
+}

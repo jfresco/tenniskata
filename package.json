@@ -1,0 +1,15 @@
+{
+  "name": "tennis-kata",
+  "version": "0.0.1",
+  "description": "Tennis Kata",
+  "main": "app.js",
+  "scripts": {
+    "test": "jslint match.js; mocha test.js"
+  },
+  "repository": "",
+  "author": "Jose Fresco",
+  "license": "MIT",
+  "devDependencies": {
+    "jslint": "~0.3.0"
+  }
+}
