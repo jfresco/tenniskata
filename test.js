@@ -113,6 +113,74 @@ describe('Match', function() {
         assert.equal('Forty', match.player1Score());
         assert.equal('Forty', match.player2Score());
     });
+    
+    it('should consider player 1 win without being deuce', function () {
+        var match = new Match({
+            player1: 'Nadal',
+            player2: 'Federer'
+        });
+
+        match.player1Scores(); // 15-0
+        match.player1Scores(); // 30-0
+        match.player1Scores(); // 40-0
+        match.player1Scores(); // 0-0
+
+        assert.equal('Love', match.player1Score());
+        assert.equal('Love', match.player2Score());
+    });
+
+    it('should consider player 2 win without being deuce', function () {
+        var match = new Match({
+            player1: 'Nadal',
+            player2: 'Federer'
+        });
+
+        match.player2Scores(); // 15-0
+        match.player2Scores(); // 30-0
+        match.player2Scores(); // 40-0
+        match.player2Scores(); // 0-0
+
+        assert.equal('Love', match.player1Score());
+        assert.equal('Love', match.player2Score());
+    });
+
+    it('should consider player 1 win after being deuce', function () {
+        var match = new Match({
+            player1: 'Nadal',
+            player2: 'Federer'
+        });
+
+        match.player1Scores(); // 15-0
+        match.player1Scores(); // 30-0
+        match.player1Scores(); // 40-0
+        match.player2Scores(); // 40-15
+        match.player2Scores(); // 40-30
+        match.player2Scores(); // Deuce
+        match.player1Scores(); // Ad p1
+        match.player1Scores(); // p1 won
+
+        assert.equal('Love', match.player1Score());
+        assert.equal('Love', match.player2Score());
+    });
+
+    it('should consider player 2 win after being deuce', function () {
+        var match = new Match({
+            player1: 'Nadal',
+            player2: 'Federer'
+        });
+
+        match.player2Scores(); // 15-0
+        match.player2Scores(); // 30-0
+        match.player2Scores(); // 40-0
+        match.player1Scores(); // 40-15
+        match.player1Scores(); // 40-30
+        match.player1Scores(); // Deuce
+        match.player2Scores(); // Ad p1
+        match.player2Scores(); // p1 won
+
+        assert.equal('Love', match.player1Score());
+        assert.equal('Love', match.player2Score());
+    });
 
 
 });

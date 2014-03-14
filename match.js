@@ -58,6 +58,8 @@ var Match = (function () {
                }
                break;
             case 4:
+               player1Score = player2Score = 0;
+               break;
             default:
                throw new Error('Illegal score');
         }
@@ -81,6 +83,8 @@ var Match = (function () {
                }
                break;
             case 4:
+               player1Score = player2Score = 0;
+               break;
             default:
                throw new Error('Illegal score');
         }
