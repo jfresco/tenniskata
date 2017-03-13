@@ -1,7 +1,7 @@
 # Tennis Match Kata
 Just an implementation in JavaScript of [this popular Kata](http://codingdojo.org/cgi-bin/index.pl?KataTennis)
 
-Runs in Node.js and uses [mocha](http://visionmedia.github.io/mocha) for unit tests.
+Runs in Node.js and uses [mocha](http://mochajs.org/) for unit tests.
 
 ## How to install
 You'll need to install [Node.js and npm](http://www.nodejs.org) and git.
